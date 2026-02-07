@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg-primary: #0A0A0B;
+  --color-bg-secondary: #0d0e12;
+  --color-bg-tertiary: #0F1419;
+  --color-bg-dark: #06060A;
+  --color-text-primary: #F2F3F4;
+  --color-text-secondary: rgba(242, 243, 244, 0.8);
+  --color-text-tertiary: rgba(242, 243, 244, 0.67);
+  --color-text-muted: rgba(242, 243, 244, 0.6);
+  --color-accent: #F99C33;
+  --color-accent-secondary: #D98880;
+  --color-border: rgba(21, 30, 59, 0.13);
+  --color-border-strong: rgba(21, 30, 59, 0.25);
+  --color-border-weak: rgba(21, 30, 59, 0.09);
+  --color-overlay: rgba(0, 0, 0, 0.53);
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+  }
+
+  .font-primary {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .font-secondary {
+    font-family: "Work Sans", sans-serif;
+  }
+}

@@ -1,0 +1,41 @@
+---
+import { getTranslations } from '../utils/i18n';
+import AnimatedWord from './AnimatedWord.astro';
+import TypingText from './TypingText.astro';
+
+const locale = Astro.cookies.get('locale')?.value === 'en' ? 'en' : 'es';
+const t = getTranslations(locale);
+---
+
+<section class="w-full flex items-center justify-center py-16 md:py-24 lg:py-[180px] px-4 md:px-8 gap-20 bg-cover bg-center relative min-h-[500px] md:min-h-[600px]">
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1751200065687-a126e7c304da?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-[var(--color-overlay)]"></div>
+
+  <div class="relative z-10 flex flex-col items-center justify-between gap-6 md:gap-8 lg:gap-[39px] w-full max-w-[1200px] mx-auto px-4 md:px-12 lg:px-[150px]">
+    <p class="font-secondary text-base md:text-lg lg:text-xl font-light text-[var(--color-text-secondary)] text-center leading-[1.7] w-full">
+      {t.hero.intro}
+    </p>
+
+    <h2 class="font-primary text-4xl md:text-6xl lg:text-[100px] font-extrabold text-[var(--color-text-primary)] text-center leading-[0.9] md:leading-[0.85] lg:leading-[0.8] tracking-[0.5px] md:tracking-[1px]">
+      <AnimatedWord
+        words={t.hero.animatedWords}
+        className="font-primary text-4xl md:text-6xl lg:text-[100px] font-extrabold text-[var(--color-text-primary)] leading-[0.9] md:leading-[0.85] lg:leading-[0.8] tracking-[0.5px] md:tracking-[1px]"
+      />
+      <br />DEVELOPER
+    </h2>
+
+    <p class="font-secondary text-xl md:text-2xl lg:text-[28px] font-semibold text-[var(--color-accent)] text-center leading-[1.7] w-full">
+      <TypingText
+        text={t.hero.subtitle}
+        className="font-secondary text-xl md:text-2xl lg:text-[28px] font-semibold text-[var(--color-accent)]"
+        typingSpeed={80}
+        startDelay={2000}
+        showCursor={true}
+      />
+    </p>
+
+    <p class="font-secondary text-sm md:text-base lg:text-xl font-light text-[var(--color-text-secondary)] text-center leading-[1.7] w-full max-w-[800px]">
+      {t.hero.description}
+    </p>
+  </div>
+</section>

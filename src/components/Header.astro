@@ -1,0 +1,37 @@
+---
+import { getTranslations } from '../utils/i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const locale = Astro.cookies.get('locale')?.value === 'en' ? 'en' : 'es';
+const t = getTranslations(locale);
+---
+
+<header class="w-full h-[72px] bg-[var(--color-bg-primary)] bg-opacity-[0.67] flex justify-center items-center sticky top-0 z-50 backdrop-blur-sm">
+  <div class="flex flex-col w-full h-full overflow-hidden">
+    <div class="flex items-center justify-between w-full max-w-[1200px] h-full px-4 md:px-6 lg:px-8 mx-auto gap-4">
+      <div class="flex items-center min-w-fit">
+        <h1 class="font-primary text-base md:text-lg font-semibold text-[var(--color-text-primary)]">
+          {t.header.logo}
+        </h1>
+      </div>
+
+      <nav class="hidden md:flex items-center justify-center gap-6 lg:gap-10">
+        <a href="#sobre-mi" class="font-secondary text-sm text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.header.nav.about}
+        </a>
+        <a href="#proyectos" class="font-secondary text-sm text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.header.nav.projects}
+        </a>
+        <a href="#contacto" class="font-secondary text-sm text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.header.nav.contact}
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3 md:gap-4">
+        <LanguageSwitcher />
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-[var(--color-border)]"></div>
+  </div>
+</header>

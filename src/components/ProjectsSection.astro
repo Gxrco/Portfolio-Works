@@ -1,0 +1,152 @@
+---
+import { getTranslations } from '../utils/i18n';
+
+const locale = Astro.cookies.get('locale')?.value === 'en' ? 'en' : 'es';
+const t = getTranslations(locale);
+
+const [featured, secondary, ...smallProjects] = t.projects.items;
+---
+
+<section id="proyectos" class="w-full bg-[var(--color-bg-secondary)] flex justify-center py-12 md:py-16 lg:py-24 px-4 md:px-8 lg:px-[150px]">
+  <div class="flex flex-col gap-8 md:gap-10 lg:gap-12 w-full max-w-[1200px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
+      <h2 class="font-primary text-2xl md:text-[32px] font-semibold text-[var(--color-text-primary)] tracking-[-0.6px]">
+        {t.projects.title}
+      </h2>
+
+      <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0">
+        <button class="px-4 md:px-5 py-2 md:py-[10px] bg-[var(--color-accent)] rounded-[20px] font-secondary text-xs md:text-[13px] font-semibold text-black hover:bg-opacity-90 transition-all whitespace-nowrap">
+          {t.projects.filters.all}
+        </button>
+        <button class="px-4 md:px-5 py-2 md:py-[10px] bg-transparent border border-[var(--color-border-strong)] rounded-[20px] font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-text-primary)] transition-all whitespace-nowrap">
+          {t.projects.filters.web}
+        </button>
+        <button class="px-4 md:px-5 py-2 md:py-[10px] bg-transparent border border-[var(--color-border-strong)] rounded-[20px] font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-text-primary)] transition-all whitespace-nowrap">
+          {t.projects.filters.ui}
+        </button>
+        <button class="px-4 md:px-5 py-2 md:py-[10px] bg-transparent border border-[var(--color-border-strong)] rounded-[20px] font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-text-primary)] transition-all whitespace-nowrap">
+          {t.projects.filters.backend}
+        </button>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 md:gap-6 w-full">
+      <div class="flex flex-col lg:flex-row gap-4 md:gap-6 w-full">
+        <div class="w-full lg:w-[776px] min-h-[380px] md:min-h-[420px] bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] p-6 md:p-8 flex flex-col justify-between gap-4 md:gap-5">
+          <div class="flex flex-col gap-3 md:gap-4">
+            <span class="font-secondary text-xs font-medium text-[var(--color-accent)] tracking-[1px]">
+              {featured.category}
+            </span>
+
+            <h3 class="font-primary text-2xl md:text-[30px] font-bold text-[var(--color-text-primary)] tracking-[-0.6px]">
+              {featured.title}
+            </h3>
+
+            <p class="font-secondary text-sm md:text-base font-normal text-[var(--color-text-secondary)] leading-[1.5] w-full">
+              {featured.description}
+            </p>
+
+            {featured.tech && featured.tech.length > 0 && (
+              <div class="flex flex-wrap gap-2">
+                {featured.tech.map((tech) => (
+                  <span class="px-3 py-[5px] bg-[var(--color-border)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 w-full">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[var(--color-accent)] text-base" style="font-weight: 100;">trending_up</span>
+              <span class="font-secondary text-xs md:text-sm font-medium text-[var(--color-accent)]">
+                {featured.metric}
+              </span>
+            </div>
+            <a href="#" class="font-secondary text-xs md:text-sm font-semibold text-[var(--color-accent)] hover:underline">
+              {t.projects.cta}
+            </a>
+          </div>
+        </div>
+
+        <div class="flex-1 min-h-[380px] md:min-h-[420px] bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] p-6 md:p-7 flex flex-col justify-between gap-4 md:gap-5">
+          <div class="flex flex-col gap-3 md:gap-4">
+            <span class="font-secondary text-xs font-semibold text-[var(--color-accent-secondary)] tracking-[1px]">
+              {secondary.category}
+            </span>
+
+            <h3 class="font-primary text-xl md:text-2xl font-bold text-[var(--color-text-primary)] tracking-[-0.4px]">
+              {secondary.title}
+            </h3>
+
+            <p class="font-secondary text-sm md:text-[15px] font-normal text-[var(--color-text-secondary)] leading-[1.5] w-full">
+              {secondary.description}
+            </p>
+
+            {secondary.tech && secondary.tech.length > 0 && (
+              <div class="flex flex-wrap gap-2">
+                {secondary.tech.map((tech) => (
+                  <span class="px-3 py-[5px] bg-[var(--color-border)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 w-full">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[var(--color-accent)] text-base" style="font-weight: 100;">trending_up</span>
+              <span class="font-secondary text-xs md:text-sm font-medium text-[var(--color-accent)]">
+                {secondary.metric}
+              </span>
+            </div>
+            <a href="#" class="font-secondary text-xs md:text-sm font-semibold text-[var(--color-accent)] hover:underline">
+              {t.projects.cta}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
+        {smallProjects.map((project) => (
+          <div class="min-h-[320px] md:min-h-[340px] bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] p-5 md:p-6 flex flex-col justify-between gap-3 md:gap-4">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <span class="font-secondary text-xs font-semibold text-[var(--color-accent)] tracking-[1px]">
+                {project.category}
+              </span>
+
+              <h3 class="font-primary text-lg md:text-xl font-bold text-[var(--color-text-primary)] tracking-[-0.4px]">
+                {project.title}
+              </h3>
+
+              <p class="font-secondary text-sm font-normal text-[var(--color-text-secondary)] leading-[1.4] w-full">
+                {project.description}
+              </p>
+
+              {project.tech && project.tech.length > 0 && (
+                <div class="flex flex-wrap gap-[6px]">
+                  {project.tech.map((tech) => (
+                    <span class="px-[10px] py-1 bg-[var(--color-border-weak)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 w-full">
+              <span class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-accent)]">
+                {project.metric}
+              </span>
+              <a href="#" class="font-secondary text-xs md:text-[13px] font-semibold text-[var(--color-accent)] hover:underline">
+                {t.projects.cta}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,100 @@
+---
+interface Props {
+  text: string;
+  className?: string;
+  typingSpeed?: number;
+  startDelay?: number;
+  showCursor?: boolean;
+}
+
+const {
+  text,
+  className = '',
+  typingSpeed = 100,
+  startDelay = 500,
+  showCursor = true
+} = Astro.props;
+---
+
+<span
+  class={`typing-text ${className}`}
+  data-text={text}
+  data-speed={typingSpeed}
+  data-delay={startDelay}
+  data-cursor={showCursor}
+>
+  <span class="typed-content"></span>
+  {showCursor && <span class="cursor">|</span>}
+</span>
+
+<script>
+  function initTypingText() {
+    const elements = document.querySelectorAll('.typing-text');
+
+    elements.forEach((element) => {
+      const fullText = element.getAttribute('data-text') || '';
+      const speed = parseInt(element.getAttribute('data-speed') || '100');
+      const delay = parseInt(element.getAttribute('data-delay') || '500');
+      const showCursor = element.getAttribute('data-cursor') === 'true';
+
+      const contentElement = element.querySelector('.typed-content') as HTMLElement;
+      const cursorElement = element.querySelector('.cursor') as HTMLElement | null;
+
+      if (!contentElement) return;
+
+      let currentIndex = 0;
+
+      setTimeout(() => {
+        const typingInterval = setInterval(() => {
+          if (currentIndex < fullText.length) {
+            contentElement.textContent = fullText.substring(0, currentIndex + 1);
+            currentIndex++;
+          } else {
+            clearInterval(typingInterval);
+            if (cursorElement) {
+              setTimeout(() => {
+                cursorElement.style.animation = 'none';
+                cursorElement.style.opacity = '0';
+              }, 500);
+            }
+          }
+        }, speed);
+
+        window.addEventListener('beforeunload', () => {
+          clearInterval(typingInterval);
+        });
+      }, delay);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTypingText);
+  } else {
+    initTypingText();
+  }
+</script>
+
+<style>
+  .typing-text {
+    display: inline-block;
+  }
+
+  .typed-content {
+    display: inline;
+  }
+
+  .cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+</style>

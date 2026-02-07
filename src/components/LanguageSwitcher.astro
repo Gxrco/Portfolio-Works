@@ -1,0 +1,84 @@
+---
+---
+
+<div class="flex items-center gap-1 border border-[var(--color-border-strong)] rounded-full p-1">
+  <button
+    id="lang-es"
+    class="lang-btn px-3 py-1 rounded-full text-xs md:text-sm font-secondary font-medium transition-all"
+    data-lang="es"
+  >
+    ES
+  </button>
+  <button
+    id="lang-en"
+    class="lang-btn px-3 py-1 rounded-full text-xs md:text-sm font-secondary font-medium transition-all"
+    data-lang="en"
+  >
+    EN
+  </button>
+</div>
+
+<script>
+  function getLocaleFromCookie() {
+    const cookie = document.cookie.split('; ').find((c) => c.startsWith('locale='));
+    if (!cookie) return null;
+    const value = cookie.split('=')[1];
+    return value === 'en' || value === 'es' ? value : null;
+  }
+
+  function setLocaleCookie(lang) {
+    document.cookie = `locale=${lang}; path=/; max-age=31536000`;
+  }
+
+  function initLanguageSwitcher() {
+    const stored = localStorage.getItem('locale');
+    const cookieLang = getLocaleFromCookie();
+    const currentLang = cookieLang || (stored === 'en' || stored === 'es' ? stored : 'es');
+
+    if (!cookieLang && (stored === 'en' || stored === 'es')) {
+      setLocaleCookie(stored);
+      window.location.reload();
+      return;
+    }
+
+    const buttons = document.querySelectorAll('.lang-btn');
+
+    buttons.forEach((btn) => {
+      const btnElement = btn as HTMLButtonElement;
+      const lang = btnElement.dataset.lang;
+
+      if (lang === currentLang) {
+        btnElement.classList.add('bg-[var(--color-accent)]', 'text-black');
+        btnElement.classList.remove('text-[var(--color-text-muted)]');
+      } else {
+        btnElement.classList.remove('bg-[var(--color-accent)]', 'text-black');
+        btnElement.classList.add('text-[var(--color-text-muted)]');
+      }
+
+      btnElement.addEventListener('click', () => {
+        const newLang = btnElement.dataset.lang as 'es' | 'en';
+        if (newLang && newLang !== currentLang) {
+          localStorage.setItem('locale', newLang);
+          setLocaleCookie(newLang);
+          window.location.reload();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+  } else {
+    initLanguageSwitcher();
+  }
+</script>
+
+<style>
+  .lang-btn {
+    cursor: pointer;
+  }
+
+  .lang-btn:hover {
+    opacity: 0.8;
+  }
+</style>

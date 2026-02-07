@@ -1,0 +1,96 @@
+---
+interface Props {
+  words: string[];
+  className?: string;
+}
+
+const { words, className = '' } = Astro.props;
+---
+
+<div class={`animated-word-container ${className}`} data-words={JSON.stringify(words)}>
+  <div class="animated-word">
+    <span class="word">{words[0]}</span>
+  </div>
+</div>
+
+<script>
+  import { animate, stagger } from 'motion';
+
+  function initAnimatedWords() {
+    const containers = document.querySelectorAll('.animated-word-container');
+
+    containers.forEach((container) => {
+      const wordsData = container.getAttribute('data-words');
+      if (!wordsData) return;
+
+      const words = JSON.parse(wordsData);
+      const wordElement = container.querySelector('.word') as HTMLElement;
+      if (!wordElement) return;
+
+      let currentIndex = 0;
+
+      async function changeWord() {
+        await animate(
+          wordElement,
+          {
+            y: [0, -100],
+            opacity: [1, 0]
+          },
+          {
+            duration: 0.5,
+            easing: 'ease-in'
+          }
+        ).finished;
+
+        currentIndex = (currentIndex + 1) % words.length;
+        wordElement.textContent = words[currentIndex];
+
+        wordElement.style.transform = 'translateY(100px)';
+        wordElement.style.opacity = '0';
+
+        await animate(
+          wordElement,
+          {
+            y: [100, 0],
+            opacity: [0, 1]
+          },
+          {
+            duration: 0.7,
+            easing: 'ease-out'
+          }
+        ).finished;
+      }
+
+      const interval = setInterval(changeWord, 5000);
+
+      window.addEventListener('beforeunload', () => {
+        clearInterval(interval);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimatedWords);
+  } else {
+    initAnimatedWords();
+  }
+</script>
+
+<style>
+  .animated-word-container {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+  }
+
+  .animated-word {
+    position: relative;
+    display: inline-block;
+  }
+
+  .word {
+    display: inline-block;
+    white-space: pre;
+  }
+</style>

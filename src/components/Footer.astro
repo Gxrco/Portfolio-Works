@@ -1,0 +1,106 @@
+---
+import { getTranslations } from '../utils/i18n';
+
+const locale = Astro.cookies.get('locale')?.value === 'en' ? 'en' : 'es';
+const t = getTranslations(locale);
+---
+
+<footer class="w-full bg-[var(--color-bg-dark)] flex flex-col justify-between items-center py-12 md:py-16 pb-6 md:pb-8 px-4 md:px-8 gap-8 md:gap-12">
+  <div class="w-full max-w-[1200px] h-px bg-[var(--color-border-strong)]"></div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-20 w-full max-w-[1200px]">
+    <div class="flex flex-col gap-4 md:gap-5 sm:col-span-2 lg:col-span-1">
+      <h3 class="font-primary text-lg md:text-xl font-semibold text-[var(--color-text-primary)]">
+        {t.footer.brand.name}
+      </h3>
+
+      <p class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] leading-[1.6] w-full max-w-[320px]">
+        {t.footer.brand.tagline}
+      </p>
+
+      <div class="flex gap-3 md:gap-4">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 flex items-center justify-center border border-[var(--color-border-strong)] rounded-[18px] hover:border-[var(--color-accent)] transition-colors">
+          <span class="material-symbols-outlined text-[var(--color-text-primary)] text-lg" style="font-weight: 100;">code</span>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 flex items-center justify-center border border-[var(--color-border-strong)] rounded-[18px] hover:border-[var(--color-accent)] transition-colors">
+          <span class="material-symbols-outlined text-[var(--color-text-primary)] text-lg" style="font-weight: 100;">work</span>
+        </a>
+
+        <a href="mailto:gerson@example.com" class="w-9 h-9 flex items-center justify-center border border-[var(--color-border-strong)] rounded-[18px] hover:border-[var(--color-accent)] transition-colors">
+          <span class="material-symbols-outlined text-[var(--color-text-primary)] text-lg" style="font-weight: 100;">mail</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 md:gap-5">
+      <h4 class="font-secondary text-xs md:text-[13px] font-semibold text-[var(--color-accent)] tracking-[0.5px]">
+        {t.footer.navigation.title}
+      </h4>
+
+      <div class="flex flex-col gap-2 md:gap-3">
+        <a href="#sobre-mi" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.navigation.links.about}
+        </a>
+        <a href="#proyectos" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.navigation.links.projects}
+        </a>
+        <a href="#valores" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.navigation.links.values}
+        </a>
+        <a href="#contacto" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.navigation.links.contact}
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 md:gap-5">
+      <h4 class="font-secondary text-xs md:text-[13px] font-semibold text-[var(--color-accent)] tracking-[0.5px]">
+        {t.footer.contact.title}
+      </h4>
+
+      <div class="flex flex-col gap-2 md:gap-3">
+        <a href="mailto:gerson@example.com" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors break-all">
+          {t.footer.contact.email}
+        </a>
+        <p class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)]">
+          {t.footer.contact.location}
+        </p>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></span>
+          <span class="font-secondary text-xs md:text-sm text-[var(--color-text-muted)]">{t.footer.contact.availability}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 md:gap-5">
+      <h4 class="font-secondary text-xs md:text-[13px] font-semibold text-[var(--color-accent)] tracking-[0.5px]">
+        {t.footer.resources.title}
+      </h4>
+
+      <div class="flex flex-col gap-2 md:gap-3">
+        <a href="#" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.resources.links.cv}
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.resources.links.github}
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="font-secondary text-xs md:text-sm font-normal text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">
+          {t.footer.resources.links.linkedin}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full max-w-[1200px] h-px bg-[var(--color-border-weak)]"></div>
+
+  <div class="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 w-full max-w-[1200px] pt-4 md:pt-6">
+    <p class="font-secondary text-xs md:text-[13px] font-normal text-[var(--color-text-muted)] text-center md:text-left">
+      {t.footer.copyright}
+    </p>
+
+    <p class="font-secondary text-xs md:text-[13px] font-normal italic text-[var(--color-text-muted)] text-center md:text-right">
+      {t.footer.builtWith}
+    </p>
+  </div>
+</footer>

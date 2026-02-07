@@ -1,17 +1,30 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ValuesSection from '../components/ValuesSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Gerson Ramírez - Software Developer">
+  <div class="flex flex-col w-full bg-[var(--color-bg-primary)]">
+    <Header />
+
+    <div class="flex flex-col w-full gap-16 md:gap-24 lg:gap-[110px]">
+      <HeroSection />
+
+      <AboutSection />
+
+      <ValuesSection />
+
+      <ProjectsSection />
+
+      <ContactSection />
+    </div>
+
+    <Footer />
+  </div>
+</Layout>
