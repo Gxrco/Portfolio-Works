@@ -1,0 +1,158 @@
+{
+  "header": {
+    "logo": "Gerson Ramírez",
+    "nav": {
+      "about": "Sobre mí",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    }
+  },
+  "hero": {
+    "intro": "En un mundo digital, necesitas un...",
+    "title": "SOFTWARE\nDEVELOPER",
+    "animatedWords": ["SOFTWARE", "FULLSTACK", "EXPERIENCE", "DIGITAL"],
+    "subtitle": "Hola, soy </Gerson Ramírez>",
+    "description": "Mi enfoque combina rigor técnico con comprensión profunda de las necesidades humanas, creando software que no solo soluciona, sino que transforma la manera en que las personas interactúan con la tecnología."
+  },
+  "about": {
+    "title": "¿Quién soy?",
+    "paragraph1": "Soy un desarrollador que encuentra propósito en resolver problemas complejos con soluciones elegantes y efectivas.",
+    "paragraph2": "Mi enfoque combina rigor técnico con comprensión profunda de las necesidades humanas, creando software que no solo funciona, sino que transforma la manera en que las personas interactúan con la tecnología.",
+    "statement": "Construyo con rigor técnico y empatía.",
+    "mission": {
+      "title": "Misión",
+      "description": "Crear soluciones tecnológicas que mejoren vidas y simplifiquen procesos complejos."
+    },
+    "vision": {
+      "title": "Visión",
+      "description": "Ser reconocido como un desarrollador que combina excelencia técnica con impacto humano."
+    }
+  },
+  "values": {
+    "title": "Valores",
+    "tagline": "Lo que guía mi forma de construir.",
+    "items": [
+      {
+        "icon": "search",
+        "title": "Curiosidad",
+        "description": "Explorar constantemente nuevas tecnologías"
+      },
+      {
+        "icon": "favorite",
+        "title": "Empatía",
+        "description": "Comprender profundamente al usuario final"
+      },
+      {
+        "icon": "lightbulb",
+        "title": "Creatividad",
+        "description": "Encontrar soluciones innovadoras y elegantes"
+      },
+      {
+        "icon": "group",
+        "title": "Liderazgo",
+        "description": "Inspirar y guiar equipos hacia objetivos comunes"
+      },
+      {
+        "icon": "shield",
+        "title": "Responsabilidad",
+        "description": "Compromiso total con la calidad y los resultados"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos seleccionados",
+    "filters": {
+      "all": "Todos",
+      "web": "Web",
+      "ui": "UI",
+      "backend": "Backend"
+    },
+    "cta": "Ver caso →",
+    "items": [
+      {
+        "category": "APLICACIÓN WEB",
+        "title": "Sistema de Gestión de Inventario",
+        "description": "Plataforma completa para control de inventario en tiempo real con predicción de demanda usando ML",
+        "tech": ["React", "Node.js", "PostgreSQL"],
+        "metric": "Reducción del 32% en tiempo de procesamiento"
+      },
+      {
+        "category": "DISEÑO UI/UX",
+        "title": "Dashboard Analytics",
+        "description": "Rediseño completo de interfaz para mejorar la experiencia del usuario",
+        "tech": ["Figma", "Tailwind", "Vue.js"],
+        "metric": "+18% conversión"
+      },
+      {
+        "category": "API REST",
+        "title": "Microservicios Auth",
+        "description": "Sistema de autenticación distribuido con JWT",
+        "tech": ["Node.js", "Docker", "Redis"],
+        "metric": "Latencia <10ms"
+      },
+      {
+        "category": "E-COMMERCE",
+        "title": "Payment Gateway",
+        "description": "Integración de pasarela de pagos con múltiples proveedores",
+        "tech": [],
+        "metric": "99.9% uptime"
+      },
+      {
+        "category": "E-COMMERCE",
+        "title": "Payment Gateway",
+        "description": "Integración de pasarela de pagos con múltiples proveedores",
+        "tech": [],
+        "metric": "99.9% uptime"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hablemos",
+    "description": "¿Tienes un proyecto en mente? Me encantaría escuchar sobre tus ideas y explorar cómo podemos trabajar juntos para hacerlas realidad.",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    },
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "emailLabel": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "submit": "Enviar mensaje"
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "Gerson Ramírez",
+      "tagline": "Desarrollador Junior creando soluciones sólidas y adaptables para problemas complejos."
+    },
+    "navigation": {
+      "title": "Navegación",
+      "links": {
+        "about": "Sobre mí",
+        "projects": "Proyectos",
+        "values": "Valores",
+        "contact": "Contacto"
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "email": "gerson@example.com",
+      "location": "Remote / Global",
+      "availability": "Disponible para proyectos"
+    },
+    "resources": {
+      "title": "Recursos",
+      "links": {
+        "cv": "Descargar CV",
+        "github": "GitHub",
+        "linkedin": "LinkedIn"
+      }
+    },
+    "copyright": "© 2026 Gerson Ramírez | Gerco. Todos los derechos reservados.",
+    "builtWith": "Hecho con dedicación y código limpio"
+  }
+}
