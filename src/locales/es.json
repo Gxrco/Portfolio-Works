@@ -72,47 +72,46 @@
       {
         "id": "therapist-track",
         "category": "WEB",
-        "title": "TherapistTrack - Gestión de Notas y Citas Psicológicas",
-        "description": "Desarrollo de una plataforma SaaS para psicólogos, facilitando la gestión de notas y citas con una interfaz intuitiva y segura.",
-        "longDescription": "TherapistTrack es una plataforma web completa diseñada específicamente para psicólogos y profesionales de la salud mental. El sistema permite gestionar citas, crear notas de sesiones con plantillas personalizables, y mantener un registro seguro y encriptado de toda la información de pacientes.\n\nEl proyecto surgió de la necesidad de digitalizar procesos que tradicionalmente se manejaban en papel, proporcionando una solución moderna, segura y fácil de usar que cumple con todas las regulaciones de privacidad de datos médicos.",
+        "title": "TherapistTrack",
+        "description": "Plataforma SaaS para psicólogos, facilitando la gestión de notas y citas con una interfaz intuitiva y segura.",
+        "longDescription": "TherapistTrack es una plataforma web completa diseñada específicamente para una clínica de salud mental. El sistema permite gestionar citas, crear notas de sesiones con plantillas personalizables, y mantener un registro seguro y encriptado de toda la información de pacientes.\n\nEl proyecto surgió de la necesidad de digitalizar procesos que tradicionalmente se manejaban en papel, proporcionando una solución moderna, segura y fácil de usar que cumple con todas las regulaciones de privacidad de datos médicos.",
         "tech": ["Vue.js", "Node.js", "MongoDB", "AWS"],
         "metric": "Digitalización del 100% de las notas y citas",
-        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200",
+        "image": "https://res.cloudinary.com/dseq5edz0/image/upload/v1769804819/39b9a9272d1837c6a599fea38c0d64e853a4f1ad_wocxri.png",
         "details": {
-          "challenge": "Los psicólogos necesitaban una forma segura y eficiente de digitalizar sus procesos de gestión de pacientes, manteniendo la privacidad y cumpliendo con regulaciones de salud.",
-          "solution": "Desarrollamos una plataforma SaaS con autenticación robusta, encriptación end-to-end, y una interfaz intuitiva que minimiza la curva de aprendizaje.",
+          "challenge": "La psicologa necesitaba una forma segura y eficiente de digitalizar sus procesos de gestión de pacientes, manteniendo la privacidad y cumpliendo con regulaciones de salud.",
+          "solution": "Desarrollamos una plataforma SaaS con autenticación robusta, encriptación end-to-end, y una interfaz intuitiva que minimiza la curva de aprendizaje adaptada a Mobile",
           "results": [
             "100% de digitalización de notas y citas",
-            "Reducción del 70% en tiempo administrativo",
+            "Disponibilidad desde cualquier dispositivo",
             "Cumplimiento total con regulaciones de privacidad"
           ],
-          "duration": "4 meses",
+          "duration": "10 meses",
           "role": "Desarrollador Full-stack"
         },
         "links": {
-          "live": null,
-          "github": null,
+          "live": "https://github.com/TherapistTrack/TherapistTrack-Frontend/releases/tag/v1.0.0",
+          "github": "https://github.com/TherapistTrack",
           "caseStudy": null
         }
       },
       {
         "id": "findcareerai",
         "category": "BACKEND",
-        "title": "FindCareerAI - Plataforma de Orientación Vocacional",
+        "title": "FindCareerAI",
         "description": "Plataforma web que utiliza IA para analizar habilidades, intereses y tendencias laborales, proporcionando recomendaciones personalizadas",
-        "longDescription": "FindCareerAI es una plataforma innovadora que combina inteligencia artificial con análisis de datos del mercado laboral para ayudar a estudiantes y profesionales a tomar decisiones informadas sobre su carrera.\n\nUtilizando modelos de IA avanzados y bases de datos vectoriales, el sistema puede analizar perfiles de usuarios, comparar con miles de trayectorias profesionales exitosas, y proporcionar recomendaciones personalizadas con un alto nivel de precisión.",
+        "longDescription": "FindCareerAI es una plataforma innovadora que combina inteligencia artificial con análisis de datos del pensum universitario para ayudar a estudiantes de próximo ingreso a tomar decisiones informadas sobre su carrera.\n\nUtilizando modelos de IA avanzados y bases de datos vectoriales, el sistema puede analizar perfiles de usuarios, comparar con miles de trayectorias profesionales exitosas, y proporcionar recomendaciones personalizadas con un alto nivel de precisión.",
         "tech": ["Python", "React", "Pinecone", "OpenAI"],
-        "metric": "+18% conversión",
-        "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200",
+        "metric": "+80% Precisión en recomendaciones",
+        "image": "https://res.cloudinary.com/dseq5edz0/image/upload/v1770437589/FindCareer_kqrmmi.webp",
         "details": {
-          "challenge": "Los estudiantes y profesionales necesitaban orientación personalizada basada en datos reales del mercado laboral, no solo en tests genéricos de personalidad.",
-          "solution": "Implementamos un sistema de IA que combina análisis semántico de habilidades con datos de tendencias laborales, utilizando embeddings vectoriales para encontrar matches precisos.",
+          "challenge": "Los estudiantes necesitaban orientación personalizada basada en datos reales de universidades locales, no solo en tests genéricos de personalidad y vocacional.",
+          "solution": "Implementamos un sistema de IA que combina análisis semántico de habilidades con datos del mundo real, utilizando embeddings vectoriales para encontrar matches precisos.",
           "results": [
-            "18% de aumento en conversión de usuarios",
-            "Satisfacción del usuario del 92%",
-            "Procesamiento de más de 10,000 consultas mensuales"
+            "+80% de precisión en recomendaciones",
+            "Satisfacción en la gamificación del 95%"
           ],
-          "duration": "5 meses",
+          "duration": "10 meses",
           "role": "Backend Developer & AI Integration"
         },
         "links": {
@@ -124,61 +123,59 @@
       {
         "id": "feedback-finder",
         "category": "UI",
-        "title": "Feedback Finder - Aplicación para Reseñas de Lugares",
+        "title": "Feedback Finder",
         "description": "Aplicación móvil que permite a los usuarios dejar y consultar reseñas de restaurantes, tiendas y servicios locales, con un diseño centrado en la experiencia del usuario.",
-        "longDescription": "Feedback Finder es una aplicación móvil diseñada para revolucionar la forma en que los usuarios descubren y comparten experiencias sobre negocios locales. El proyecto se enfocó principalmente en crear una experiencia de usuario excepcional mediante pruebas exhaustivas de usabilidad.\n\nEl diseño prioriza la facilidad de uso, con flujos intuitivos para dejar reseñas, explorar lugares cercanos, y descubrir nuevas opciones basadas en preferencias personales.",
+        "longDescription": "Feedback Finder es una aplicación móvil diseñada para revolucionar la forma en que los usuarios descubren y comparten experiencias sobre negocios locales. El proyecto se enfocó principalmente en crear una experiencia de usuario intuitiva y accesible.\n\nEl diseño prioriza la facilidad de uso, con flujos intuitivos para dejar reseñas, explorar lugares cercanos, y descubrir nuevas opciones basadas en preferencias personales",
         "tech": ["Figma", "Usability Testing"],
-        "metric": "Usabilidad optimizada con una tasa de satisfacción del 85%",
-        "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200",
+        "metric": "Usabilidad optimizada",
+        "image": "https://res.cloudinary.com/dseq5edz0/image/upload/v1770437097/feedbackF_didzbw.webp",
         "details": {
           "challenge": "Las aplicaciones existentes de reseñas eran complejas y sobrecargadas de información, dificultando la experiencia de usuarios casuales.",
-          "solution": "Diseñamos una interfaz minimalista con énfasis en la experiencia visual y la facilidad de navegación, validada mediante múltiples rondas de testing con usuarios reales.",
+          "solution": "Se diseñó una interfaz minimalista con énfasis en la experiencia visual y la facilidad de navegación, validada mediante múltiples rondas de testing con usuarios reales.",
           "results": [
-            "85% de tasa de satisfacción del usuario",
-            "Reducción del 40% en tiempo para completar tareas",
-            "Incremento del 60% en reseñas dejadas por usuario"
+            "90% de tasa de satisfacción del usuario",
+            "Flujo del usuario completado en 10s"
           ],
           "duration": "3 meses",
           "role": "UI/UX Designer"
         },
         "links": {
-          "live": null,
+          "live": "https://www.figma.com/proto/IIyUx9dNht15iah4wFfwoj/Proyecto-final--Feedback-Finder?page-id=0%3A1&node-id=17-1119&viewport=338%2C275%2C0.36&t=x3GGr2mkYzrHAsav-1&scaling=min-zoom",
           "github": null,
-          "caseStudy": null
+          "caseStudy": "https://res.cloudinary.com/dseq5edz0/image/upload/v1770430739/annotated-Documento20final20Feedback20Finder_compressed_u7k1rn.pdf"
         }
       },
       {
         "id": "thecozywhiskers",
         "category": "WEB",
-        "title": "TheCozyWhiskers - Plataforma de Atención de Cafetería",
+        "title": "TheCozyWhiskers",
         "description": "Plataforma web para gestión de pedidos, inventario y atención al cliente en cafeterías.",
         "longDescription": "TheCozyWhiskers es una plataforma integral de gestión para cafeterías que unifica el sistema de pedidos, control de inventario, y atención al cliente en una sola aplicación web moderna.\n\nEl sistema permite a los baristas tomar pedidos rápidamente, gestionar el stock en tiempo real, y ofrecer una experiencia excepcional al cliente mediante notificaciones de estado del pedido y un sistema de fidelización integrado.",
         "tech": ["React", "Node.js", "PostgreSQL"],
         "metric": "Disponibilidad 99.9%",
-        "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200",
+        "image": "https://res.cloudinary.com/dseq5edz0/image/upload/v1770438892/thecozywhiskers_mngbob.webp",
         "details": {
           "challenge": "Las cafeterías necesitaban un sistema unificado que reemplazara múltiples herramientas desconectadas para pedidos, inventario y pagos.",
           "solution": "Desarrollamos una plataforma web responsive con arquitectura escalable, sincronización en tiempo real, y alta disponibilidad para soportar horas pico.",
           "results": [
             "99.9% de disponibilidad del sistema",
-            "Reducción del 50% en tiempo de procesamiento de pedidos",
-            "Integración exitosa en 12 cafeterías"
+            "Integración de tecnologías web"
           ],
           "duration": "6 meses",
           "role": "Desarrollador Full-stack Lead"
         },
         "links": {
-          "live": null,
-          "github": null,
+          "live": "https://the-cozy-whiskers.vercel.app",
+          "github": "https://github.com/lemoonchild/the-cozy-whiskers",
           "caseStudy": null
         }
       },
       {
         "id": "timer-app",
         "category": "WEB",
-        "title": "Timer App",
+        "title": "TimerApp",
         "description": "Aplicación de temporizador para iOS con notificaciones y sincronización en tiempo real",
-        "longDescription": "Timer App es una aplicación móvil para iOS diseñada para mejorar la productividad mediante técnicas de gestión del tiempo como Pomodoro. La app incluye notificaciones inteligentes, estadísticas de productividad, y sincronización en la nube.\n\nEl proyecto se enfocó en crear una experiencia nativa fluida y eficiente energéticamente, aprovechando al máximo las capacidades del ecosistema de Apple.",
+        "longDescription": "Timer App es una aplicación móvil para iOS diseñada para mejorar la productividad mediante técnicas de gestión del tiempo como Pomodoro. La app incluye notificaciones inteligentes y personalización.\n\nEl proyecto se enfocó en crear una experiencia nativa fluida y eficiente, enfocandose en lo simple y práctico.",
         "tech": ["Swift", "UIKit"],
         "metric": "Productividad +25%",
         "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200",
@@ -186,16 +183,16 @@
           "challenge": "Los usuarios necesitaban una herramienta de gestión del tiempo simple pero potente, que se integrara nativamente con iOS sin comprometer el rendimiento de la batería.",
           "solution": "Desarrollamos una app nativa en Swift con optimizaciones de batería, notificaciones locales inteligentes, y widgets para acceso rápido.",
           "results": [
-            "25% de aumento en productividad reportada por usuarios",
-            "4.8 estrellas en App Store",
-            "Consumo de batería menor al 2% por sesión"
+            "25% de aumento en mi productividad",
+            "Compatible con iOS y iPadOS",
+            "Sin compras ni anuncios"
           ],
-          "duration": "3 meses",
+          "duration": "1 mes",
           "role": "iOS Developer"
         },
         "links": {
           "live": null,
-          "github": null,
+          "github": "https://github.com/NexLabs-Tech/TimerApp",
           "caseStudy": null
         }
       }
@@ -222,7 +219,7 @@
   "footer": {
     "brand": {
       "name": "Gerson Ramírez",
-      "tagline": "Desarrollador Junior creando soluciones sólidas y adaptables para problemas complejos."
+      "tagline": "Desarrollador de Software creando soluciones sólidas y adaptables para problemas complejos."
     },
     "navigation": {
       "title": "Navegación",

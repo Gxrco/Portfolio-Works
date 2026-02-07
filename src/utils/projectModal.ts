@@ -162,6 +162,12 @@ export function setupProjectModal() {
               Ver código
             </a>
           ` : ''}
+          ${project.links.caseStudy ? `
+            <a href="${project.links.caseStudy}" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-secondary">
+              <span class="material-symbols-outlined">description</span>
+              Ver caso de estudio
+            </a>
+          ` : ''}
         </div>
       ` : ''}
     `;
