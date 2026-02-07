@@ -74,4 +74,4 @@ Pasos recomendados:
 
 ## Licencia
 
-Derechos reservados © 2024 Gerson Ramírez. No se permite uso comercial sin autorización previa. Para consultas, contacta a services@gerco.works
+Derechos reservados © 2026 Gerson Ramírez. No se permite uso comercial sin autorización previa. Para consultas, contacta a services@gerco.works

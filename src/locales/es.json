@@ -70,39 +70,39 @@
     "cta": "Ver caso →",
     "items": [
       {
-        "category": "APLICACIÓN WEB",
-        "title": "Sistema de Gestión de Inventario",
-        "description": "Plataforma completa para control de inventario en tiempo real con predicción de demanda usando ML",
-        "tech": ["React", "Node.js", "PostgreSQL"],
-        "metric": "Reducción del 32% en tiempo de procesamiento"
+        "category": "WEB",
+        "title": "TherapistTrack - Gestión de Notas y Citas Psicológicas",
+        "description": "Desarrollo de una plataforma SaaS para psicólogos, facilitando la gestión de notas y citas con una interfaz intuitiva y segura.",
+        "tech": ["Vue.js", "Node.js", "MongoDB", "AWS"],
+        "metric": "Digitalización del 100% de las notas y citas"
       },
       {
-        "category": "DISEÑO UI/UX",
-        "title": "Dashboard Analytics",
-        "description": "Rediseño completo de interfaz para mejorar la experiencia del usuario",
-        "tech": ["Figma", "Tailwind", "Vue.js"],
+        "category": "BACKEND",
+        "title": "FindCareerAI - Plataforma de Orientación Vocacional",
+        "description": "Plataforma web que utiliza IA para analizar habilidades, intereses y tendencias laborales, proporcionando recomendaciones personalizadas",
+        "tech": ["Python", "React", "Pinecone", "OpenAI"],
         "metric": "+18% conversión"
       },
       {
-        "category": "API REST",
-        "title": "Microservicios Auth",
-        "description": "Sistema de autenticación distribuido con JWT",
-        "tech": ["Node.js", "Docker", "Redis"],
-        "metric": "Latencia <10ms"
+        "category": "UI",
+        "title": "Feedback Finder - Aplicación para Reseñas de Lugares",
+        "description": "Aplicación móvil que permite a los usuarios dejar y consultar reseñas de restaurantes, tiendas y servicios locales, con un diseño centrado en la experiencia del usuario.",
+        "tech": ["Figma", "Usability Testing"],
+        "metric": "Usabilidad optimizada con una tasa de satisfacción del 85%"
       },
       {
-        "category": "E-COMMERCE",
-        "title": "Payment Gateway",
-        "description": "Integración de pasarela de pagos con múltiples proveedores",
-        "tech": [],
-        "metric": "99.9% uptime"
+        "category": "WEB",
+        "title": "TheCozyWhiskers - Plataforma de Atención de Cafetería",
+        "description": "Plataforma web para gestión de pedidos, inventario y atención al cliente en cafeterías.",
+        "tech": ["React", "Node.js", "PostgreSQL"],
+        "metric": "Disponibilidad 99.9%"
       },
       {
-        "category": "E-COMMERCE",
-        "title": "Payment Gateway",
-        "description": "Integración de pasarela de pagos con múltiples proveedores",
-        "tech": [],
-        "metric": "99.9% uptime"
+        "category": "WEB",
+        "title": "Timer App",
+        "description": "Aplicación de temporizador para iOS con notificaciones y sincronización en tiempo real",
+        "tech": ["Swift", "UIKit"],
+        "metric": "Productividad +25%"
       }
     ]
   },
@@ -140,7 +140,7 @@
     },
     "contact": {
       "title": "Contacto",
-      "email": "gerson@example.com",
+      "email": "services@gerco.works",
       "location": "Remote / Global",
       "availability": "Disponible para proyectos"
     },

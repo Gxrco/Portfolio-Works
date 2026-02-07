@@ -19,7 +19,7 @@ const t = getTranslations(locale);
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 w-full">
       {t.values.items.map((value) => (
         <div class="flex flex-col gap-2 p-4 border border-[var(--color-border-weak)] rounded-2xl w-full">
-          <span class="w-5 h-5 text-[var(--color-accent)] material-symbols-outlined" style="font-weight: 100;">
+          <span class="text-[var(--color-accent)] material-symbols-outlined" style="font-weight: 100; font-size: 50px;">
             {value.icon}
           </span>
           <h3 class="font-primary text-base font-semibold text-[var(--color-text-primary)]">
