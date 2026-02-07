@@ -1,0 +1,64 @@
+---
+interface Props {
+  project: {
+    id: string;
+    category: string;
+    title: string;
+    description: string;
+    tech: string[];
+    metric: string;
+    filter: string;
+  };
+  index: number;
+  ctaText: string;
+}
+
+const { project, index, ctaText } = Astro.props;
+---
+
+<div
+  data-filter={project.filter}
+  data-project-id={project.id}
+  class="project-card bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] flex flex-col justify-between"
+>
+  <div class="flex flex-col gap-3 md:gap-4 card-content">
+    <span class="font-secondary text-xs font-medium text-[var(--color-accent)] tracking-[1px] card-category">
+      {project.category}
+    </span>
+
+    <h3 class="card-title font-primary font-bold text-[var(--color-text-primary)] tracking-[-0.6px]">
+      {project.title}
+    </h3>
+
+    <p class="card-description font-secondary font-normal text-[var(--color-text-secondary)] leading-[1.5] w-full">
+      {project.description}
+    </p>
+
+    {project.tech && project.tech.length > 0 && (
+      <div class="flex flex-wrap gap-2 card-tech-list">
+        {project.tech.map((tech) => (
+          <span class="card-tech-tag px-3 py-[5px] bg-[var(--color-border)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
+            {tech}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 w-full card-footer">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-[var(--color-accent)] text-base" style="font-weight: 100;">trending_up</span>
+      <span class="font-secondary text-xs md:text-sm font-medium text-[var(--color-accent)]">
+        {project.metric}
+      </span>
+    </div>
+    <a
+      href="#"
+      data-project-trigger
+      data-project-index={index}
+      class="font-secondary text-xs md:text-sm font-semibold text-[var(--color-accent)] hover:underline"
+    >
+      {ctaText}
+    </a>
+  </div>
+</div>

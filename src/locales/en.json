@@ -70,39 +70,134 @@
     "cta": "View case →",
     "items": [
       {
-        "category": "WEB APPLICATION",
-        "title": "Inventory Management System",
-        "description": "Complete platform for real-time inventory control with demand prediction using ML",
+        "id": "therapist-track",
+        "category": "WEB",
+        "title": "TherapistTrack - Psychological Notes and Appointments Management",
+        "description": "Development of a SaaS platform for psychologists, facilitating the management of notes and appointments with an intuitive and secure interface.",
+        "longDescription": "TherapistTrack is a comprehensive web platform designed specifically for psychologists and mental health professionals. The system allows managing appointments, creating session notes with customizable templates, and maintaining a secure and encrypted record of all patient information.\n\nThe project arose from the need to digitize processes that were traditionally handled on paper, providing a modern, secure, and easy-to-use solution that complies with all medical data privacy regulations.",
+        "tech": ["Vue.js", "Node.js", "MongoDB", "AWS"],
+        "metric": "100% digitization of notes and appointments",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200",
+        "details": {
+          "challenge": "Psychologists needed a secure and efficient way to digitize their patient management processes while maintaining privacy and complying with health regulations.",
+          "solution": "We developed a SaaS platform with robust authentication, end-to-end encryption, and an intuitive interface that minimizes the learning curve.",
+          "results": [
+            "100% digitization of notes and appointments",
+            "70% reduction in administrative time",
+            "Full compliance with privacy regulations"
+          ],
+          "duration": "4 months",
+          "role": "Full-stack Developer"
+        },
+        "links": {
+          "live": null,
+          "github": null,
+          "caseStudy": null
+        }
+      },
+      {
+        "id": "findcareerai",
+        "category": "BACKEND",
+        "title": "FindCareerAI - Career Guidance Platform",
+        "description": "Web platform that uses AI to analyze skills, interests, and labor trends, providing personalized recommendations",
+        "longDescription": "FindCareerAI is an innovative platform that combines artificial intelligence with labor market data analysis to help students and professionals make informed decisions about their careers.\n\nUsing advanced AI models and vector databases, the system can analyze user profiles, compare with thousands of successful professional trajectories, and provide personalized recommendations with a high level of accuracy.",
+        "tech": ["Python", "React", "Pinecone", "OpenAI"],
+        "metric": "+18% conversion",
+        "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200",
+        "details": {
+          "challenge": "Students and professionals needed personalized guidance based on real labor market data, not just generic personality tests.",
+          "solution": "We implemented an AI system that combines semantic analysis of skills with labor trend data, using vector embeddings to find precise matches.",
+          "results": [
+            "18% increase in user conversion",
+            "92% user satisfaction",
+            "Processing of more than 10,000 monthly queries"
+          ],
+          "duration": "5 months",
+          "role": "Backend Developer & AI Integration"
+        },
+        "links": {
+          "live": null,
+          "github": null,
+          "caseStudy": null
+        }
+      },
+      {
+        "id": "feedback-finder",
+        "category": "UI",
+        "title": "Feedback Finder - Place Reviews Application",
+        "description": "Mobile application that allows users to leave and consult reviews of restaurants, shops, and local services, with a user-centered design.",
+        "longDescription": "Feedback Finder is a mobile application designed to revolutionize how users discover and share experiences about local businesses. The project focused primarily on creating an exceptional user experience through exhaustive usability testing.\n\nThe design prioritizes ease of use, with intuitive flows for leaving reviews, exploring nearby places, and discovering new options based on personal preferences.",
+        "tech": ["Figma", "Usability Testing"],
+        "metric": "Optimized usability with 85% satisfaction rate",
+        "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200",
+        "details": {
+          "challenge": "Existing review apps were complex and overloaded with information, making the experience difficult for casual users.",
+          "solution": "We designed a minimalist interface with emphasis on visual experience and ease of navigation, validated through multiple rounds of testing with real users.",
+          "results": [
+            "85% user satisfaction rate",
+            "40% reduction in time to complete tasks",
+            "60% increase in reviews left per user"
+          ],
+          "duration": "3 months",
+          "role": "UI/UX Designer"
+        },
+        "links": {
+          "live": null,
+          "github": null,
+          "caseStudy": null
+        }
+      },
+      {
+        "id": "thecozywhiskers",
+        "category": "WEB",
+        "title": "TheCozyWhiskers - Coffee Shop Service Platform",
+        "description": "Web platform for order management, inventory, and customer service in coffee shops.",
+        "longDescription": "TheCozyWhiskers is an integral management platform for coffee shops that unifies the order system, inventory control, and customer service in a single modern web application.\n\nThe system allows baristas to take orders quickly, manage stock in real-time, and offer an exceptional customer experience through order status notifications and an integrated loyalty system.",
         "tech": ["React", "Node.js", "PostgreSQL"],
-        "metric": "32% reduction in processing time"
+        "metric": "99.9% availability",
+        "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200",
+        "details": {
+          "challenge": "Coffee shops needed a unified system to replace multiple disconnected tools for orders, inventory, and payments.",
+          "solution": "We developed a responsive web platform with scalable architecture, real-time synchronization, and high availability to support peak hours.",
+          "results": [
+            "99.9% system availability",
+            "50% reduction in order processing time",
+            "Successful integration in 12 coffee shops"
+          ],
+          "duration": "6 months",
+          "role": "Lead Full-stack Developer"
+        },
+        "links": {
+          "live": null,
+          "github": null,
+          "caseStudy": null
+        }
       },
       {
-        "category": "UI/UX DESIGN",
-        "title": "Dashboard Analytics",
-        "description": "Complete interface redesign to improve user experience",
-        "tech": ["Figma", "Tailwind", "Vue.js"],
-        "metric": "+18% conversion"
-      },
-      {
-        "category": "REST API",
-        "title": "Auth Microservices",
-        "description": "Distributed authentication system with JWT",
-        "tech": ["Node.js", "Docker", "Redis"],
-        "metric": "Latency <10ms"
-      },
-      {
-        "category": "E-COMMERCE",
-        "title": "Payment Gateway",
-        "description": "Payment gateway integration with multiple providers",
-        "tech": [],
-        "metric": "99.9% uptime"
-      },
-      {
-        "category": "E-COMMERCE",
-        "title": "Payment Gateway",
-        "description": "Payment gateway integration with multiple providers",
-        "tech": [],
-        "metric": "99.9% uptime"
+        "id": "timer-app",
+        "category": "WEB",
+        "title": "Timer App",
+        "description": "iOS timer application with notifications and real-time synchronization",
+        "longDescription": "Timer App is a mobile application for iOS designed to improve productivity through time management techniques like Pomodoro. The app includes smart notifications, productivity statistics, and cloud synchronization.\n\nThe project focused on creating a smooth and energy-efficient native experience, making the most of the capabilities of the Apple ecosystem.",
+        "tech": ["Swift", "UIKit"],
+        "metric": "+25% productivity",
+        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200",
+        "details": {
+          "challenge": "Users needed a simple but powerful time management tool that integrated natively with iOS without compromising battery performance.",
+          "solution": "We developed a native Swift app with battery optimizations, smart local notifications, and widgets for quick access.",
+          "results": [
+            "25% increase in productivity reported by users",
+            "4.8 stars on the App Store",
+            "Battery consumption less than 2% per session"
+          ],
+          "duration": "3 months",
+          "role": "iOS Developer"
+        },
+        "links": {
+          "live": null,
+          "github": null,
+          "caseStudy": null
+        }
       }
     ]
   },

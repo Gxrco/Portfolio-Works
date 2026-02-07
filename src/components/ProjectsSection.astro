@@ -1,5 +1,6 @@
 ---
 import { getTranslations } from '../utils/i18n';
+import ProjectCard from './ProjectCard.astro';
 
 const locale = Astro.cookies.get('locale')?.value === 'en' ? 'en' : 'es';
 const t = getTranslations(locale);
@@ -37,8 +38,6 @@ const projects = t.projects.items.map((project) => ({
   ...project,
   filter: resolveProjectFilter(project.category),
 }));
-
-const [featured, secondary, ...smallProjects] = projects;
 ---
 
 <section id="proyectos" data-projects-root class="w-full bg-[var(--color-bg-secondary)] flex justify-center py-12 md:py-16 lg:py-24 px-4 md:px-8 lg:px-[150px]">
@@ -63,128 +62,23 @@ const [featured, secondary, ...smallProjects] = projects;
       </div>
     </div>
 
-    <div class="flex flex-col gap-4 md:gap-6 w-full">
-      <div class="project-row flex flex-col lg:flex-row gap-4 md:gap-6 w-full">
-        <div data-filter={featured.filter} class="project-card w-full lg:w-[776px] min-h-[380px] md:min-h-[420px] bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] p-6 md:p-8 flex flex-col justify-between gap-4 md:gap-5">
-          <div class="flex flex-col gap-3 md:gap-4">
-            <span class="font-secondary text-xs font-medium text-[var(--color-accent)] tracking-[1px]">
-              {featured.category}
-            </span>
+    <div class="flex flex-col gap-4 md:gap-6 w-full" data-cards-container>
+      <div class="project-row-primary flex flex-col lg:flex-row gap-4 md:gap-6 w-full"></div>
+      <div class="project-row-secondary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full"></div>
 
-            <h3 class="font-primary text-2xl md:text-[30px] font-bold text-[var(--color-text-primary)] tracking-[-0.6px]">
-              {featured.title}
-            </h3>
-
-            <p class="font-secondary text-sm md:text-base font-normal text-[var(--color-text-secondary)] leading-[1.5] w-full">
-              {featured.description}
-            </p>
-
-            {featured.tech && featured.tech.length > 0 && (
-              <div class="flex flex-wrap gap-2">
-                {featured.tech.map((tech) => (
-                  <span class="px-3 py-[5px] bg-[var(--color-border)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 w-full">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[var(--color-accent)] text-base" style="font-weight: 100;">trending_up</span>
-              <span class="font-secondary text-xs md:text-sm font-medium text-[var(--color-accent)]">
-                {featured.metric}
-              </span>
-            </div>
-            <a href="#" class="font-secondary text-xs md:text-sm font-semibold text-[var(--color-accent)] hover:underline">
-              {t.projects.cta}
-            </a>
-          </div>
-        </div>
-
-        <div data-filter={secondary.filter} class="project-card flex-1 min-h-[380px] md:min-h-[420px] bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] p-6 md:p-7 flex flex-col justify-between gap-4 md:gap-5">
-          <div class="flex flex-col gap-3 md:gap-4">
-            <span class="font-secondary text-xs font-semibold text-[var(--color-accent-secondary)] tracking-[1px]">
-              {secondary.category}
-            </span>
-
-            <h3 class="font-primary text-xl md:text-2xl font-bold text-[var(--color-text-primary)] tracking-[-0.4px]">
-              {secondary.title}
-            </h3>
-
-            <p class="font-secondary text-sm md:text-[15px] font-normal text-[var(--color-text-secondary)] leading-[1.5] w-full">
-              {secondary.description}
-            </p>
-
-            {secondary.tech && secondary.tech.length > 0 && (
-              <div class="flex flex-wrap gap-2">
-                {secondary.tech.map((tech) => (
-                  <span class="px-3 py-[5px] bg-[var(--color-border)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 w-full">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[var(--color-accent)] text-base" style="font-weight: 100;">trending_up</span>
-              <span class="font-secondary text-xs md:text-sm font-medium text-[var(--color-accent)]">
-                {secondary.metric}
-              </span>
-            </div>
-            <a href="#" class="font-secondary text-xs md:text-sm font-semibold text-[var(--color-accent)] hover:underline">
-              {t.projects.cta}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full">
-        {smallProjects.map((project) => (
-          <div data-filter={project.filter} class="project-card min-h-[320px] md:min-h-[340px] bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-[20px] p-5 md:p-6 flex flex-col justify-between gap-3 md:gap-4">
-            <div class="flex flex-col gap-2 md:gap-3">
-              <span class="font-secondary text-xs font-semibold text-[var(--color-accent)] tracking-[1px]">
-                {project.category}
-              </span>
-
-              <h3 class="font-primary text-lg md:text-xl font-bold text-[var(--color-text-primary)] tracking-[-0.4px]">
-                {project.title}
-              </h3>
-
-              <p class="font-secondary text-sm font-normal text-[var(--color-text-secondary)] leading-[1.4] w-full">
-                {project.description}
-              </p>
-
-              {project.tech && project.tech.length > 0 && (
-                <div class="flex flex-wrap gap-[6px]">
-                  {project.tech.map((tech) => (
-                    <span class="px-[10px] py-1 bg-[var(--color-border-weak)] rounded-[10px] font-secondary text-[11px] font-medium text-[var(--color-text-primary)]">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 w-full">
-              <span class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-accent)]">
-                {project.metric}
-              </span>
-              <a href="#" class="font-secondary text-xs md:text-[13px] font-semibold text-[var(--color-accent)] hover:underline">
-                {t.projects.cta}
-              </a>
-            </div>
-          </div>
+      <!-- Template inicial - se moverá dinámicamente -->
+      <template data-cards-template>
+        {projects.map((project, index) => (
+          <ProjectCard project={project} index={index} ctaText={t.projects.cta} />
         ))}
-      </div>
+      </template>
     </div>
   </div>
 </section>
 
 <script>
+  import { createCardLayoutManager } from '../utils/cardLayoutManager';
+
   const initProjectFilters = () => {
     const section = document.querySelector('[data-projects-root]');
     if (!section) return;
@@ -192,34 +86,79 @@ const [featured, secondary, ...smallProjects] = projects;
     section.dataset.filtersReady = 'true';
 
     const buttons = Array.from(section.querySelectorAll('.project-filter-btn'));
-    const cards = Array.from(section.querySelectorAll('.project-card'));
-    const rows = Array.from(section.querySelectorAll('.project-row'));
+    const container = section.querySelector('[data-cards-container]') as HTMLElement;
+    const template = section.querySelector('[data-cards-template]') as HTMLTemplateElement;
 
-    const applyFilter = (filter) => {
-      cards.forEach((card) => {
-        const matches = filter === 'all' || card.dataset.filter === filter;
+    if (!container || !template) return;
+
+    // Initialize layout manager
+    const layoutManager = createCardLayoutManager();
+
+    // Move cards from template to container initially
+    const templateContent = template.content;
+    const cards = Array.from(templateContent.querySelectorAll('.project-card'));
+    const firstRow = container.querySelector('.project-row-primary') as HTMLElement;
+
+    if (firstRow) {
+      cards.forEach(card => {
+        firstRow.appendChild(card.cloneNode(true));
+      });
+    }
+
+    // Get projects data for modal
+    const projectsData = Array.from(section.querySelectorAll('.project-card')).map((card) => {
+      const projectId = card.getAttribute('data-project-id');
+      return (window as any).__PROJECTS_DATA__?.find((p: any) => p.id === projectId);
+    }).filter(Boolean);
+
+    const applyFilter = async (filter: string) => {
+      const allCards = Array.from(container.querySelectorAll('.project-card'));
+
+      allCards.forEach((card) => {
+        const matches = filter === 'all' || card.getAttribute('data-filter') === filter;
         card.classList.toggle('hidden', !matches);
       });
 
-      rows.forEach((row) => {
-        const hasVisibleCards = row.querySelector('.project-card:not(.hidden)');
-        row.classList.toggle('hidden', !hasVisibleCards);
-      });
+      await layoutManager.applyDynamicSizing(container);
 
       buttons.forEach((button) => {
-        const isActive = button.dataset.filter === filter;
-        button.dataset.active = String(isActive);
+        const isActive = button.getAttribute('data-filter') === filter;
+        button.setAttribute('data-active', String(isActive));
         button.setAttribute('aria-pressed', String(isActive));
+      });
+
+      // Re-setup modal triggers after layout change
+      setupModalTriggers();
+    };
+
+    const setupModalTriggers = () => {
+      const triggers = section.querySelectorAll('[data-project-trigger]');
+      triggers.forEach(trigger => {
+        const newTrigger = trigger.cloneNode(true) as HTMLElement;
+        trigger.replaceWith(newTrigger);
+
+        newTrigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const index = parseInt(newTrigger.getAttribute('data-project-index') || '0');
+          const project = projectsData[index];
+
+          if (typeof (window as any).openProjectModal === 'function' && project) {
+            (window as any).openProjectModal(project);
+          }
+        });
       });
     };
 
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        applyFilter(button.dataset.filter || 'all');
+        applyFilter(button.getAttribute('data-filter') || 'all');
       });
     });
 
-    applyFilter('all');
+    // Initialize layout
+    layoutManager.applyDynamicSizing(container).then(() => {
+      setupModalTriggers();
+    });
   };
 
   if (document.readyState === 'loading') {
@@ -229,4 +168,9 @@ const [featured, secondary, ...smallProjects] = projects;
   }
 
   document.addEventListener('astro:page-load', initProjectFilters);
+</script>
+
+<script define:vars={{ projects }}>
+  // Pass projects data to global scope for modal
+  window.__PROJECTS_DATA__ = projects;
 </script>

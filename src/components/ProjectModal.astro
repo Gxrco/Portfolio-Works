@@ -1,0 +1,31 @@
+---
+// ProjectModal.astro - Component structure only
+---
+
+<div id="project-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" data-modal-backdrop></div>
+
+  <div class="modal-container" role="document">
+    <div class="modal-header">
+      <h2 id="modal-title" class="modal-title"></h2>
+      <button type="button" class="modal-close" aria-label="Cerrar modal" data-modal-close>
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="modal-content" data-modal-content>
+      <!-- Dynamic content injected here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  import { animate } from 'motion';
+  import { setupProjectModal } from '../utils/projectModal';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setupProjectModal());
+  } else {
+    setupProjectModal();
+  }
+</script>

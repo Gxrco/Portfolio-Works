@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { getTranslations } from '../utils/i18n';
+import ProjectModal from '../components/ProjectModal.astro';
 
 interface Props {
   title: string;
@@ -32,6 +33,6 @@ const { title, description = t.footer.brand.tagline } = Astro.props;
   </head>
   <body class="h-full">
     <slot />
-
+    <ProjectModal />
   </body>
 </html>
