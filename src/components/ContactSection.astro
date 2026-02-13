@@ -35,55 +35,180 @@ const t = getTranslations(locale);
     </div>
 
     <div class="flex flex-col gap-6 md:gap-7 p-6 md:p-8 lg:p-10 bg-[var(--color-bg-tertiary)] border border-[var(--color-border-strong)] rounded-[20px] w-full lg:flex-1">
-      <form class="flex flex-col gap-6 md:gap-7">
+      <form
+        id="contact-form"
+        class="flex flex-col gap-6 md:gap-7"
+        data-required-message={t.contact.form.required}
+        data-success-message={t.contact.form.success}
+        data-error-message={t.contact.form.error}
+        data-rate-limited-message={t.contact.form.rateLimited}
+      >
+        <div class="absolute left-[-10000px] top-auto w-px h-px overflow-hidden" aria-hidden="true">
+          <label for="contact-website">Website</label>
+          <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" id="contact-form-started-at" name="formStartedAt" />
+
         <div class="flex flex-col gap-2 md:gap-[10px]">
-          <label for="name" class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-tertiary)]">
+          <label for="contact-name" class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-tertiary)]">
             {t.contact.form.nameLabel}
           </label>
           <input
             type="text"
-            id="name"
+            id="contact-name"
             name="name"
             class="h-12 md:h-[52px] px-4 bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-lg font-secondary text-sm md:text-base text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             placeholder={t.contact.form.namePlaceholder}
+            required
+            maxlength="120"
+            autocomplete="name"
           />
         </div>
 
         <div class="flex flex-col gap-2 md:gap-[10px]">
-          <label for="email" class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-tertiary)]">
+          <label for="contact-email" class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-tertiary)]">
             {t.contact.form.emailLabel}
           </label>
           <input
             type="email"
-            id="email"
+            id="contact-email"
             name="email"
             class="h-12 md:h-[52px] px-4 bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-lg font-secondary text-sm md:text-base text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
             placeholder={t.contact.form.emailPlaceholder}
+            required
+            maxlength="254"
+            autocomplete="email"
           />
         </div>
 
         <div class="flex flex-col gap-2 md:gap-[10px]">
-          <label for="message" class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-tertiary)]">
+          <label for="contact-message" class="font-secondary text-xs md:text-[13px] font-medium text-[var(--color-text-tertiary)]">
             {t.contact.form.messageLabel}
           </label>
           <textarea
-            id="message"
+            id="contact-message"
             name="message"
             rows="5"
             class="h-32 md:h-[140px] p-4 bg-[var(--color-bg-primary)] border border-[var(--color-border-strong)] rounded-lg font-secondary text-sm md:text-base text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)] transition-colors resize-none"
             placeholder={t.contact.form.messagePlaceholder}
+            required
+            maxlength="5000"
           ></textarea>
         </div>
+
+        <p
+          data-form-status
+          class="hidden font-secondary text-sm"
+          role="status"
+          aria-live="polite"
+        ></p>
 
         <div>
           <button
             type="submit"
-            class="w-full md:w-auto px-8 md:px-9 py-3 md:py-4 bg-[var(--color-accent)] rounded font-secondary text-sm md:text-base font-medium text-[var(--color-text-primary)] hover:bg-opacity-90 transition-all"
+            data-submit-button
+            data-default-text={t.contact.form.submit}
+            data-loading-text={t.contact.form.submitting}
+            class="w-full md:w-auto px-8 md:px-9 py-3 md:py-4 bg-[var(--color-accent)] rounded font-secondary text-sm md:text-base font-medium text-[var(--color-text-primary)] hover:bg-opacity-90 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {t.contact.form.submit}
+            <span data-button-text>{t.contact.form.submit}</span>
           </button>
         </div>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.querySelector('#contact-form');
+
+  if (form instanceof HTMLFormElement) {
+    const statusMessage = form.querySelector('[data-form-status]');
+    const submitButton = form.querySelector('[data-submit-button]');
+    const buttonText = form.querySelector('[data-button-text]');
+    const requiredMessage = form.dataset.requiredMessage ?? 'Please complete all fields before sending.';
+    const successMessage = form.dataset.successMessage ?? 'Message sent successfully.';
+    const errorMessage = form.dataset.errorMessage ?? 'Could not send the message.';
+    const rateLimitedMessage = form.dataset.rateLimitedMessage ?? 'Too many requests. Please try again later.';
+    const defaultButtonText = submitButton?.getAttribute('data-default-text') ?? 'Send';
+    const loadingButtonText = submitButton?.getAttribute('data-loading-text') ?? 'Sending...';
+    const formStartedAtInput = form.querySelector('input[name="formStartedAt"]');
+
+    const resetFormStartedAt = () => {
+      if (formStartedAtInput instanceof HTMLInputElement) {
+        formStartedAtInput.value = String(Date.now());
+      }
+    };
+
+    resetFormStartedAt();
+
+    const setStatus = (message, variant) => {
+      if (!(statusMessage instanceof HTMLElement)) {
+        return;
+      }
+
+      statusMessage.textContent = message;
+      statusMessage.classList.remove('hidden');
+      statusMessage.style.color = variant === 'success' ? '#8BD4A6' : '#FF7A7A';
+    };
+
+    const setSubmitting = (submitting) => {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = submitting;
+        submitButton.setAttribute('aria-busy', String(submitting));
+      }
+
+      if (buttonText instanceof HTMLElement) {
+        buttonText.textContent = submitting ? loadingButtonText : defaultButtonText;
+      }
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const payload = {
+        name: String(formData.get('name') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        message: String(formData.get('message') ?? '').trim(),
+        website: String(formData.get('website') ?? '').trim(),
+        formStartedAt: String(formData.get('formStartedAt') ?? ''),
+      };
+
+      if (!payload.name || !payload.email || !payload.message) {
+        setStatus(requiredMessage, 'error');
+        return;
+      }
+
+      setSubmitting(true);
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          if (response.status === 429) {
+            setStatus(rateLimitedMessage, 'error');
+            return;
+          }
+
+          setStatus(errorMessage, 'error');
+          return;
+        }
+
+        form.reset();
+        resetFormStartedAt();
+        setStatus(successMessage, 'success');
+      } catch {
+        setStatus(errorMessage, 'error');
+      } finally {
+        setSubmitting(false);
+      }
+    });
+  }
+</script>

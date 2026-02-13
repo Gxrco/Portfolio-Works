@@ -213,7 +213,12 @@
       "emailPlaceholder": "tu@email.com",
       "messageLabel": "Mensaje",
       "messagePlaceholder": "Cuéntame sobre tu proyecto...",
-      "submit": "Enviar mensaje"
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando...",
+      "required": "Completa todos los campos antes de enviar.",
+      "success": "Mensaje enviado correctamente. Te responderé pronto.",
+      "error": "No se pudo enviar el mensaje. Inténtalo nuevamente.",
+      "rateLimited": "Has enviado demasiados mensajes. Intenta de nuevo en unos minutos."
     }
   },
   "footer": {
