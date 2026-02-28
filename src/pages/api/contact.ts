@@ -121,19 +121,13 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const result = await insertContactMessage({ name, email, message });
     if (!result.ok) {
-      const status = result.status >= 400 && result.status < 600 ? result.status : 500;
-      return jsonResponse(
-        {
-          ok: false,
-          error: result.message,
-        },
-        status,
-      );
+      console.error('[contact] insertContactMessage failed:', result.message);
+      return jsonResponse({ ok: false, error: 'Could not save your message. Please try again later.' }, 500);
     }
 
     return jsonResponse({ ok: true });
   } catch (error) {
-    const messageText = error instanceof Error ? error.message : 'Unexpected server error.';
-    return jsonResponse({ ok: false, error: messageText }, 500);
+    console.error('[contact] Unexpected error:', error instanceof Error ? error.message : error);
+    return jsonResponse({ ok: false, error: 'Unexpected server error. Please try again later.' }, 500);
   }
 };
