@@ -9,10 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^8.0.4",
+    "@astrojs/vercel": "^8.2.11",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
     "motion": "^12.33.0",
     "tailwindcss": "^4.1.18"
+  },
+  "overrides": {
+    "path-to-regexp": ">=6.3.0"
   }
 }
